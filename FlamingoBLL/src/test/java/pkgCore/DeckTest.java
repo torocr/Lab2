@@ -8,9 +8,12 @@ public class DeckTest {
 
 	@Test
 	public void TestDeck() {
-		
-		//	TODO: Build a deck(1), make sure there are 52 cards in the deck
-		//	TODO: Build a deck(6), make sure there are 312 cards in the deck 
+		Deck d=new Deck(1);
+		Deck f=new Deck(6);
+
+		assertEquals(d.deckLength(),52);
+		assertEquals(f.deckLength(),312);
+
 	}
 
 }

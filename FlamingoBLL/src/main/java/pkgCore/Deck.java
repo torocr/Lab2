@@ -1,19 +1,30 @@
 package pkgCore;
+import java.util.ArrayList;
+import java.util.Random;
+
+import pkgEnum.eRank;
+import pkgEnum.eSuit;
 
 public class Deck {
 
-	//	TODO: Add 'cards' attribute that is an ArrayList of Card
-	
-	
-	//	TODO: Add a contructor that passes in the number of decks, and then populates
-	//			ArrayList<Card> with cards (depending on number of decks).
-	
-	//			Example: Deck(1) will build one 52-card deck.  There are 52 different cards
-	//			2 clubs, 3 clubs... Ace clubs, 2 hearts, 3 hearts... Ace hearts, etc
-	
-	//			Deck(2) will create an array of 104 cards.
-	
-	
-	//	TODO: Add a draw() method that will take a card from the deck and
-	//			return it to the caller
+	private ArrayList<Card> deck;
+	public Deck(int numberOfDecks){
+		deck=new ArrayList<Card>();
+		for(int i=0;i<numberOfDecks;i++) {
+			for(eSuit eSuit: eSuit.values()) {
+				for(eRank eRank:eRank.values()) {
+					deck.add(new Card(eSuit,eRank)); //creates a deck of 52 cards
+				}
+			}
+		}
+	}
+	public int deckLength() {
+		return deck.size();
+	}
+
+	public Card draw() {
+		Random random=new Random();
+		int cardNumber=random.nextInt(deck.size()-1);
+		return deck.remove(cardNumber);
+	}
 }
