@@ -27,4 +27,30 @@ public class Deck {
 		int cardNumber=random.nextInt(deck.size()-1);
 		return deck.remove(cardNumber);
 	}
+	
+	public int getRemaining(Object object) {
+		int count=0;
+
+		if(object instanceof eRank) {
+			for (Card d:deck) {
+				if(d.geteRank()==object) {
+					count++;
+				}
+			}
+		return count;
+		}
+		
+		else if(object instanceof eSuit) {
+
+			if(object instanceof eSuit) {
+				for (Card d:deck) {
+					if(d.geteSuit()==object) {
+						count++;
+					}
+				}
+			return count;
+			}
+		}
+		return 0;
+	}
 }
